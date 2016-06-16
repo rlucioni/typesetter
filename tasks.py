@@ -20,12 +20,14 @@ def requirements(context):
 
     context.run(cmd)
 
+
 @task
-def run(context):
+def run(context, host='127.0.0.1', port='5000'):
     steps = [
-        'open http://127.0.0.1:5000/',
-        'FLASK_APP=typesetter/typesetter.py FLASK_DEBUG=1 flask run',
+        'open http://{host}:{port}/',
+        'FLASK_APP=typesetter/typesetter.py FLASK_DEBUG=1 flask run --host={host} --port={port}',
     ]
+    steps = [step.format(host=host, port=port) for step in steps]
     cmd = ' && '.join(steps)
 
     context.run(cmd)
