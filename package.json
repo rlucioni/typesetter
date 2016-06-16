@@ -1,0 +1,22 @@
+{
+  "name": "typesetter",
+  "version": "0.1.0",
+  "description": "Flask and React application for playing Letterpress.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlucioni/typesetter.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rlucioni/typesetter/issues"
+  },
+  "homepage": "https://github.com/rlucioni/typesetter#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}

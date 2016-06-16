@@ -1,0 +1,22 @@
+{
+  "name": "typesetter",
+  "homepage": "https://github.com/rlucioni/typesetter",
+  "authors": [
+    "Renzo Lucioni <renzo@renzolucioni.com>"
+  ],
+  "description": "Flask and React application for playing Letterpress.",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./typesetter/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "react": "^15.1.0"
+  }
+}
