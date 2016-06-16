@@ -48,7 +48,7 @@ def static(context):
 @task(help={
     'host': 'Hostname on which to run the server',
 })
-def stream(context, host=None):
+def stream(context, host='127.0.0.1'):
     """
     Serve the site, open it in a browser, and watch for changes. Refresh the browser when changes are detected.
     """
