@@ -96,4 +96,8 @@ node_modules/
 typesetter/static/bower_components
 
 # gulp
-typesetter/static/scripts/js/
+typesetter/static/js/
+typesetter/static/css/
+
+# OS X
+.DS_Store
