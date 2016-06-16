@@ -1,25 +1,33 @@
+var words = [
+    'food',
+    'water',
+    'nerf',
+    'chair',
+    'computer',
+    'tomato',
+    'book',
+    'bottle',
+    'cup'
+];
+
 var DynamicSearch = React.createClass({
 
-    // Sets initial state.
     getInitialState: function() {
         return {searchString: ''};
     },
 
-    // Sets state and triggers rendering.
     handleChange: function(event) {
-        // Grab value from input box.
         this.setState({searchString: event.target.value});
     },
 
     render: function() {
 
-        var countries = this.props.items;
+        var words = this.props.items;
         var searchString = this.state.searchString.trim().toLowerCase();
 
-        // Filter countries list by value from input box.
         if (searchString.length > 0) {
-            countries = countries.filter(function(country) {
-                return country.name.toLowerCase().match(searchString);
+            words = words.filter(function(word) {
+                return word.toLowerCase().match(searchString);
             });
         }
 
@@ -27,7 +35,7 @@ var DynamicSearch = React.createClass({
             <div>
                 <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search"/>
                 <ul>
-                    {countries.map(function(country) { return <li>{country.name}</li> })}
+                    {words.map(function(word) { return <li>{word}</li> })}
                 </ul>
             </div>
         )
@@ -35,15 +43,5 @@ var DynamicSearch = React.createClass({
 
 });
 
-// list of countries, defined with JavaScript object literals
-var countries = [
-    {"name": "Sweden"}, {"name": "China"}, {"name": "Peru"}, {"name": "Czech Republic"},
-    {"name": "Bolivia"}, {"name": "Latvia"}, {"name": "Samoa"}, {"name": "Armenia"},
-    {"name": "Greenland"}, {"name": "Cuba"}, {"name": "Western Sahara"}, {"name": "Ethiopia"},
-    {"name": "Malaysia"}, {"name": "Argentina"}, {"name": "Uganda"}, {"name": "Chile"},
-    {"name": "Aruba"}, {"name": "Japan"}, {"name": "Trinidad and Tobago"}, {"name": "Italy"},
-    {"name": "Cambodia"}, {"name": "Iceland"}, {"name": "Dominican Republic"}, {"name": "Turkey"},
-    {"name": "Spain"}, {"name": "Poland"}, {"name": "Haiti"}
-];
 
-ReactDOM.render(<DynamicSearch items={countries}/>, document.getElementById('content'));
+ReactDOM.render(<DynamicSearch items={words}/>, document.getElementById('content'));
