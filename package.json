@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/rlucioni/typesetter#readme",
   "dependencies": {
-    "bower": "^1.7.9"
+    "bower": "^1.7.9",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-browser": "^2.1.9",
+    "gulp-size": "^2.1.0",
+    "reactify": "^1.1.1"
   }
 }

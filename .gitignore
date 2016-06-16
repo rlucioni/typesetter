@@ -94,3 +94,6 @@ node_modules/
 
 # bower
 typesetter/static/bower_components
+
+# gulp
+typesetter/static/scripts/js/
