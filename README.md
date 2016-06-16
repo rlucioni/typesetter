@@ -1,15 +1,14 @@
 # typesetter
 
-Flask and React application for playing Letterpress.
+Flask and React application for help playing Letterpress.
 
 ## Getting Started
 
-Create a virtual environment and install Python requirements:
+Create a virtual environment:
 
 ```
 $ python3 -m venv venv
 $ source venv/bin/activate
-$ pip install -r requirements.txt
 ```
 
 Use [nvm](https://github.com/creationix/nvm) to activate the expected version of node:
@@ -18,8 +17,20 @@ Use [nvm](https://github.com/creationix/nvm) to activate the expected version of
 $ nvm use
 ```
 
-Install bower:
+Install requirements:
 
 ```
-$ npm install -g bower
+$ inv requirements
+```
+
+Serve the site, open it in a browser, and watch for changes, refreshing the browser when changes are detected:
+
+```
+$ inv stream
+```
+
+To list all available tasks:
+
+```
+$ inv -l
 ```
