@@ -25,12 +25,8 @@ def requirements(context):
 
 @task
 def serve(context, host='127.0.0.1', port='5000'):
-    steps = [
-        'open http://{host}:{port}/',
-        'FLASK_APP=typesetter/typesetter.py FLASK_DEBUG=1 flask run --host={host} --port={port}',
-    ]
-    steps = [step.format(host=host, port=port) for step in steps]
-    cmd = ' && '.join(steps)
+    cmd = 'python3 typesetter/typesetter.py --host {host} --port {port}'
+    cmd = cmd.format(host=host, port=port)
 
     context.run(cmd)
 

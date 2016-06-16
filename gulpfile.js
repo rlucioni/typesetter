@@ -18,11 +18,13 @@ gulp.task('clean', function() {
     return del([paths.js, paths.css]);
 });
 
+
 gulp.task('sass', function () {
     return gulp.src(paths.sass)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.css));
 });
+
 
 gulp.task('jsx', function() {
     var stream = gulp.src(paths.jsx)
@@ -35,9 +37,11 @@ gulp.task('jsx', function() {
     return stream;
 });
 
+
 gulp.task('watch', function() {
     gulp.watch(paths.jsx, ['jsx']);
     gulp.watch(paths.sass, ['sass']);
 });
+
 
 gulp.task('default', ['sass', 'jsx', 'watch']);
