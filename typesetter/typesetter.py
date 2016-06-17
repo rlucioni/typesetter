@@ -30,18 +30,10 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/api/words')
-def words():
-    # with open('typesetter/data/words.txt') as words:
-    #     return jsonify([word.strip('\n') for word in words])
-    return jsonify([
-        'apple',
-        'orange',
-        'raspberry',
-        'peach',
-        'strawberry',
-        'banana',
-    ])
+@app.route('/api/search/<fragment>')
+def search(fragment):
+    with open('typesetter/data/words.txt') as words:
+        return jsonify([word.strip('\n') for word in words if fragment in word])
 
 
 server = Server(app.wsgi_app)
