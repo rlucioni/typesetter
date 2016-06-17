@@ -1,19 +1,17 @@
-var words = [
-    'food',
-    'water',
-    'nerf',
-    'chair',
-    'computer',
-    'tomato',
-    'book',
-    'bottle',
-    'cup'
-];
-
 var DynamicSearch = React.createClass({
 
     getInitialState: function() {
         return {searchString: ''};
+    },
+
+    componentDidMount: function() {
+        this.serverRequest = $.get(this.props.source, function(words) {
+            this.setState({words: words});
+        }.bind(this));
+    },
+
+    componentWillUnmount: function() {
+        this.serverRequest.abort();
     },
 
     handleChange: function(event) {
@@ -22,7 +20,7 @@ var DynamicSearch = React.createClass({
 
     render: function() {
 
-        var words = this.props.items;
+        var words = this.state.words || [];
         var searchString = this.state.searchString.trim().toLowerCase();
 
         if (searchString.length > 0) {
@@ -33,7 +31,7 @@ var DynamicSearch = React.createClass({
 
         return (
             <div>
-                <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search"/>
+                <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search..."/>
                 <ul>
                     {words.map(function(word) { return <li>{word}</li> })}
                 </ul>
@@ -44,4 +42,7 @@ var DynamicSearch = React.createClass({
 });
 
 
-ReactDOM.render(<DynamicSearch items={words}/>, document.getElementById('content'));
+ReactDOM.render(
+    <DynamicSearch source="http://127.0.0.1:5000/api/words"/>,
+    document.getElementById('content')
+);

@@ -32,8 +32,16 @@ def index():
 
 @app.route('/api/words')
 def words():
-    with open('typesetter/data/words.txt') as words:
-        return jsonify([word.strip('\n') for word in words])
+    # with open('typesetter/data/words.txt') as words:
+    #     return jsonify([word.strip('\n') for word in words])
+    return jsonify([
+        'apple',
+        'orange',
+        'raspberry',
+        'peach',
+        'strawberry',
+        'banana',
+    ])
 
 
 server = Server(app.wsgi_app)
