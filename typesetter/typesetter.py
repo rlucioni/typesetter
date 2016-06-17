@@ -1,6 +1,7 @@
 import argparse
 
 from flask import Flask, render_template, jsonify
+from flask.ext.compress import Compress
 from livereload import Server
 
 
@@ -24,6 +25,8 @@ app.config.update(
     JSONIFY_PRETTYPRINT_REGULAR=False,
 )
 
+Compress(app)
+
 
 @app.route('/')
 def index():
@@ -32,16 +35,16 @@ def index():
 
 @app.route('/api/words')
 def words():
-    # with open('typesetter/data/words.txt') as words:
-    #     return jsonify([word.strip('\n') for word in words])
-    return jsonify([
-        'apple',
-        'orange',
-        'raspberry',
-        'peach',
-        'strawberry',
-        'banana',
-    ])
+    with open('typesetter/data/words.txt') as words:
+        return jsonify([word.strip('\n') for word in words])
+    # return jsonify([
+    #     'apple',
+    #     'orange',
+    #     'raspberry',
+    #     'peach',
+    #     'strawberry',
+    #     'banana',
+    # ])
 
 
 server = Server(app.wsgi_app)
