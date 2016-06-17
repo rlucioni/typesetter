@@ -22,7 +22,8 @@ gulp.task('clean', function() {
 gulp.task('sass', function () {
     return gulp.src(paths.sass)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(paths.css));
+        .pipe(gulp.dest(paths.css))
+        .pipe(size());
 });
 
 
