@@ -31,8 +31,12 @@ def requirements(context):
 })
 def serve(context, host='127.0.0.1', port='5000'):
     """Serve the Flask app."""
-    cmd = 'python3 typesetter/typesetter.py --host {host} --port {port}'
-    cmd = cmd.format(host=host, port=port)
+    cmds = [
+        'open http://{host}:{port}',
+        'python3 typesetter/typesetter.py --host {host} --port {port}',
+    ]
+    cmds = [cmd.format(host=host, port=port) for cmd in cmds]
+    cmd = ' && '.join(cmds)
 
     context.run(cmd)
 
