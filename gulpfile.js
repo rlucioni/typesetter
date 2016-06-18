@@ -7,7 +7,7 @@ var sass = require('gulp-sass');
 var size = require('gulp-size');
 
 var paths = {
-    jsx: './typesetter/static/jsx/*.jsx',
+    jsx: './typesetter/static/jsx/*.js*',
     js: './typesetter/static/js/',
     sass: './typesetter/static/sass/*.scss',
     css: './typesetter/static/css/'

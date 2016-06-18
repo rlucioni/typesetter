@@ -29,18 +29,22 @@ var DynamicSearch = React.createClass({
         }
     },
 
+    // kuro, yoko, kyo
     render: function() {
         console.log('Rendering.');
 
         var words = this.state.words || [];
 
         return (
-            <div>
-                <input type="text" value={this.state.searchString} onChange={this.handleChange} placeholder="Search..."/>
+            <span className="input input--kuro">
+                <input className="input__field input__field--kuro" id="input-0" type="text" value={this.state.searchString} onChange={this.handleChange}/>
+                <label className="input__label input__label--kuro" for="input-0">
+                    <span className="input__label-content input__label-content--kuro">Query</span>
+                </label>
                 <ul>
                     {words.map(function(word) { return <li key={word}>{word}</li> })}
                 </ul>
-            </div>
+            </span>
         )
     }
 
