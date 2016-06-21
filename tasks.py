@@ -16,7 +16,6 @@ def requirements(context):
     steps = [
         'pip install -r requirements.txt',
         'npm install',
-        '$(npm bin)/bower install',
     ]
     cmd = ' && '.join(steps)
 
