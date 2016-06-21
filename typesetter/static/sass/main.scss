@@ -1,8 +1,208 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,500,700,800);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+    background: #f9f7f6;
+    color: #404d5b;
+    font-weight: 500;
+    font-size: 2em;
+    font-family: 'Raleway', Arial, sans-serif;
+}
+
+a {
+    color: #2fa0ec;
+    text-decoration: none;
+    outline: none;
+}
+
+a:hover, a:focus {
+    color: #404d5b;
+}
+
 .container {
+    margin: 0 auto;
     text-align: center;
+    overflow: hidden;
     padding-top: 1em;
 }
 
+.content {
+    font-size: 150%;
+    padding: 3em 0;
+}
+
+.content h2 {
+    margin: 0 0 2em;
+    opacity: 0.1;
+}
+
+.content p {
+    margin: 1em 0;
+    padding: 5em 0 0 0;
+    font-size: 0.65em;
+}
+
+.bgcolor-1 { background: #f0efee; }
+.bgcolor-2 { background: #f9f9f9; }
+.bgcolor-3 { background: #e8e8e8; }
+.bgcolor-4 { background: #2f3238; color: #fff; }
+.bgcolor-5 { background: #df6659; color: #521e18; }
+.bgcolor-6 { background: #2fa8ec; color: #fff;}
+.bgcolor-7 { background: #d0d6d6; }
+.bgcolor-8 { background: #3d4444; color: #fff; }
+.bgcolor-9 { background: #8781bd; color: #fff; }
+.bgcolor-10 { background: #6C6C6C; }
+
+body .nomargin-bottom {
+    margin-bottom: 0;
+}
+
+// Search bar
+.input {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    max-width: 350px;
+    width: calc(100% - 2em);
+    vertical-align: top;
+}
+
+.input__field {
+    position: relative;
+    display: block;
+    float: right;
+    padding: 0.8em;
+    width: 60%;
+    border: none;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #aaa;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-appearance: none; // for box shadows to show on iOS
+}
+
+.input__field:focus {
+    outline: none;
+}
+
+.input__label {
+    display: inline-block;
+    float: right;
+    padding: 0 1em;
+    width: 40%;
+    color: #6a7989;
+    font-weight: bold;
+    font-size: 70.25%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.input__label-content {
+    position: relative;
+    display: block;
+    padding: 1.6em 0;
+    width: 100%;
+}
+
+.graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: none;
+}
+
+.icon {
+    color: #ddd;
+    font-size: 150%;
+}
+
+// Yoko, from http://tympanus.net/Development/TextInputEffects.
+.input__field--yoko {
+    z-index: 10;
+    width: 100%;
+    background: transparent;
+    color: #f5f5f5;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+.input__label--yoko {
+    position: relative;
+    width: 100%;
+    color: #b04b40;
+    text-align: left;
+}
+
+.input__label--yoko::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 4em;
+    background: #c5564a;
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.input__label--yoko::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.25em;
+    background: #ad473c;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+
+.input__label-content--yoko {
+    padding: 0.75em 0;
+}
+
+.input__field--yoko:focus,
+.input--filled .input__field--yoko {
+    opacity: 1;
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+}
+
+.input__field--yoko:focus + .input__label--yoko::before,
+.input--filled .input__label--yoko::before {
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+}
+
+.input__field--yoko:focus + .input__label--yoko,
+.input--filled .input__label--yoko {
+    pointer-events: none;
+}
+
+.input__field--yoko:focus + .input__label--yoko::after,
+.input--filled .input__label--yoko::after {
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+}
+
+// Search results
 ul {
     margin-top: 5em;
     // margin-left: 3em;
@@ -30,12 +230,16 @@ li {
     transition: all 0.3s ease-out;
 }
 
-li:nth-child(even) { 
-    border-left-color: #00aced;
+li.short {
+    border-left-color: green;
 }
 
-li:nth-child(odd) {
-    border-left-color: #4183c4;
+li.medium {
+    border-left-color: orange;
+}
+
+li.long {
+    border-left-color: red;
 }
 
 li:hover {

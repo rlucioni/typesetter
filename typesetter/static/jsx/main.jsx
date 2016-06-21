@@ -1,38 +1,30 @@
 var DynamicSearch = React.createClass({
 
     getInitialState: function() {
-        console.log('Getting initial state.');
         return {searchString: ''};
     },
 
     handleChange: function(event) {
-        console.log('Change detected.');
-
         var searchString = event.target.value;
         var url = this.props.source + searchString.trim().toLowerCase();
 
         if (searchString.length > 2) {
-            console.log('Searching.');
-            this.serverRequest = $.get(url, function(words) {
-                console.log(words);
+            this.serverRequest = $.get(url, function(results) {
                 this.setState({
-                    words: words,
+                    results: results,
                     searchString: searchString
                 });
             }.bind(this));
         } else {
-            console.log('Query not long enough, not searching.');
             this.setState({
-                words: null,
+                results: null,
                 searchString: searchString
             });
         }
     },
 
     render: function() {
-        console.log('Rendering.');
-
-        var words = this.state.words || [];
+        var results = this.state.results || [];
 
         return (
             <span className="input input--yoko">
@@ -41,7 +33,9 @@ var DynamicSearch = React.createClass({
                     <span className="input__label-content input__label-content--yoko">Query</span>
                 </label>
                 <ul>
-                    {words.map(function(word) { return <li key={word}>{word}</li> })}
+                    {results.map(function(result) {
+                        return <li className={result.category} key={result.word}>{result.word}</li>
+                    })}
                 </ul>
             </span>
         )
