@@ -6,6 +6,11 @@ app.config.update(
     JSONIFY_PRETTYPRINT_REGULAR=False,
 )
 
+# Read in the entire wordlist at startup and keep it in memory.
+# Optimization for improving search response time.
+with open('typesetter/data/words.txt') as f:
+    WORDS = f.read().split('\n')
+
 
 @app.route('/')
 def index():
@@ -15,14 +20,13 @@ def index():
 @app.route('/api/search/<fragment>')
 def search(fragment):
     results = []
-    with open('typesetter/data/words.txt') as words:
-        for word in words:
-            word = word.strip('\n')
-            if fragment in word:
-                results.append({
-                    'word': word,
-                    'category': classify(word),
-                })
+
+    for word in WORDS:
+        if fragment in word:
+            results.append({
+                'word': word,
+                'category': classify(word),
+            })
 
     return jsonify(results)
 
