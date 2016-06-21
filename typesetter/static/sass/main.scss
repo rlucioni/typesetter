@@ -34,21 +34,6 @@ a:hover, a:focus {
     padding: 3em 0;
 }
 
-.content h2 {
-    margin: 0 0 2em;
-    opacity: 0.1;
-}
-
-.content p {
-    margin: 1em 0;
-    padding: 5em 0 0 0;
-    font-size: 0.65em;
-}
-
-body .nomargin-bottom {
-    margin-bottom: 0;
-}
-
 // Search bar
 .input {
     position: relative;
@@ -198,22 +183,9 @@ ul {
     list-style: none;
 }
 
-// li {
-//     display: block;
-//     text-decoration: none;
-//     color: #9e9e9e;
-//     padding: 10px 20px;
-// }
-
-// li:hover {
-//     background: #f3f8f8;
-// }
-
 li {
     display: block;
     text-decoration: none;
-    // color: #333;
-    // border-left: 0.3em solid;
     padding: 0.5em;
     margin-bottom: 1em;
     margin-left: -40px;
@@ -221,20 +193,17 @@ li {
 }
 
 li.short {
-    // border-left-color: green;
     color: green;
 }
 
 li.medium {
-    // border-left-color: orange;
     color: orange;
 }
 
 li.long {
-    // border-left-color: red;
     color: red;
 }
 
 li:hover {
-    color: grey;
+    color: black;
 }
