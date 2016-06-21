@@ -3,6 +3,7 @@ from flask import Flask, render_template, jsonify
 
 app = Flask(__name__)
 app.config.update(
+    # Reduce response size by avoiding pretty printing.
     JSONIFY_PRETTYPRINT_REGULAR=False,
 )
 
