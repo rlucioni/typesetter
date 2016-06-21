@@ -40,3 +40,12 @@ To list all available tasks:
 ```
 $ inv -l
 ```
+
+## Heroku
+
+Hosting this app on Heroku requires the installation of multiple buildpacks:
+
+```
+$ heroku buildpacks:set heroku/python
+$ heroku buildpacks:add heroku/nodejs
+```
