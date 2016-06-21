@@ -23,10 +23,16 @@ Install requirements:
 $ inv requirements
 ```
 
-Serve the site, open it in a browser, and watch for changes, refreshing the browser when changes are detected:
+Serve the site and open it in a browser:
 
 ```
-$ inv stream
+$ inv serve
+```
+
+Compile static assets and watch for changes:
+
+```
+$ inv static
 ```
 
 To list all available tasks:
