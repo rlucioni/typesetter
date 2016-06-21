@@ -45,17 +45,6 @@ a:hover, a:focus {
     font-size: 0.65em;
 }
 
-.bgcolor-1 { background: #f0efee; }
-.bgcolor-2 { background: #f9f9f9; }
-.bgcolor-3 { background: #e8e8e8; }
-.bgcolor-4 { background: #2f3238; color: #fff; }
-.bgcolor-5 { background: #df6659; color: #521e18; }
-.bgcolor-6 { background: #2fa8ec; color: #fff;}
-.bgcolor-7 { background: #d0d6d6; }
-.bgcolor-8 { background: #3d4444; color: #fff; }
-.bgcolor-9 { background: #8781bd; color: #fff; }
-.bgcolor-10 { background: #6C6C6C; }
-
 body .nomargin-bottom {
     margin-bottom: 0;
 }
@@ -205,8 +194,8 @@ body .nomargin-bottom {
 // Search results
 ul {
     margin-top: 5em;
-    // margin-left: 3em;
-    text-align: left;
+    text-align: center;
+    list-style: none;
 }
 
 // li {
@@ -223,23 +212,27 @@ ul {
 li {
     display: block;
     text-decoration: none;
-    color: #333;
-    border-left: 0.3em solid;
-    padding: 0.6em;
+    // color: #333;
+    // border-left: 0.3em solid;
+    padding: 0.5em;
     margin-bottom: 1em;
+    margin-left: -40px;
     transition: all 0.3s ease-out;
 }
 
 li.short {
-    border-left-color: green;
+    // border-left-color: green;
+    color: green;
 }
 
 li.medium {
-    border-left-color: orange;
+    // border-left-color: orange;
+    color: orange;
 }
 
 li.long {
-    border-left-color: red;
+    // border-left-color: red;
+    color: red;
 }
 
 li:hover {

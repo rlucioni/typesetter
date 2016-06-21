@@ -30,7 +30,7 @@ var DynamicSearch = React.createClass({
             <span className="input input--yoko">
                 <input className="input__field input__field--yoko" id="input-0" type="text" value={this.state.searchString} onChange={this.handleChange}/>
                 <label className="input__label input__label--yoko" for="input-0">
-                    <span className="input__label-content input__label-content--yoko">Query</span>
+                    <span className="input__label-content input__label-content--yoko">Letters to use?</span>
                 </label>
                 <ul>
                     {results.map(function(result) {
