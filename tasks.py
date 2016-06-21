@@ -1,6 +1,4 @@
 """Task functions for use with Invoke."""
-from threading import Thread
-
 from invoke import task
 
 
@@ -33,7 +31,7 @@ def serve(context, host='127.0.0.1', port='5000'):
     """Serve the Flask app."""
     cmds = [
         'open http://{host}:{port}',
-        'python3 typesetter/typesetter.py --host {host} --port {port}',
+        'FLASK_APP=typesetter/typesetter.py FLASK_DEBUG=1 flask run --host={host} --port={port}',
     ]
     cmds = [cmd.format(host=host, port=port) for cmd in cmds]
     cmd = ' && '.join(cmds)
@@ -47,24 +45,3 @@ def static(context):
     cmd = '$(npm bin)/gulp'
 
     context.run(cmd)
-
-
-@task(help={
-    'host': 'Hostname on which to run the server',
-})
-def stream(context, host='127.0.0.1'):
-    """
-    Serve the site, open it in a browser, and watch for changes. Refresh the browser when changes are detected.
-    """
-    tasks = [
-        (static, {}),
-        (serve, {'host': host}),
-    ]
-
-    threads = [
-        Thread(target=target, args=(context,), kwargs=kwargs, daemon=True)
-        for target, kwargs in tasks
-    ]
-
-    [t.start() for t in threads]
-    [t.join() for t in threads]
