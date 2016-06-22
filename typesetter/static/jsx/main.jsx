@@ -45,6 +45,6 @@ var DynamicSearch = React.createClass({
 
 
 ReactDOM.render(
-    <DynamicSearch source="http://127.0.0.1:5000/api/search/"/>,
+    <DynamicSearch source="/api/search/"/>,
     document.getElementById('content')
 );
