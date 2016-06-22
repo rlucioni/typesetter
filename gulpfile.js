@@ -5,6 +5,7 @@ var gulpBrowser = require('gulp-browser');
 var reactify = require('reactify');
 var sass = require('gulp-sass');
 var size = require('gulp-size');
+var uglify = require('gulp-uglify');
 
 var paths = {
     jsx: './typesetter/static/jsx/*.js*',
@@ -21,7 +22,7 @@ gulp.task('clean', function() {
 
 gulp.task('sass', function () {
     return gulp.src(paths.sass)
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest(paths.css))
         .pipe(size());
 });
@@ -32,6 +33,7 @@ gulp.task('jsx', function() {
         .pipe(gulpBrowser.browserify({transform: ['reactify']}))
         // Convert .jsx to .js
         .pipe(babel({}))
+        .pipe(uglify())
         .pipe(gulp.dest(paths.js))
         .pipe(size());
 
