@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from flask import Flask, render_template, jsonify
 
 
@@ -16,6 +18,13 @@ def index():
 
 @app.route('/api/search/<fragment>')
 def search(fragment):
+    results = find_matches(fragment)
+
+    return jsonify(results)
+
+
+@lru_cache()
+def find_matches(fragment):
     results = []
 
     for word in WORDS:
@@ -25,7 +34,7 @@ def search(fragment):
                 'category': classify(word),
             })
 
-    return jsonify(results)
+    return results
 
 
 def classify(word):
